@@ -2883,7 +2883,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\packages\created\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Views\MacroPartials\" />
@@ -3114,6 +3113,9 @@
     <Content Include="Views\Partials\Grid\Fanoe.cshtml" />
     <Content Include="Views\Partials\MainNavigation.cshtml" />
     <Content Include="Views\TextPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\packages\created\createdPackages.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
