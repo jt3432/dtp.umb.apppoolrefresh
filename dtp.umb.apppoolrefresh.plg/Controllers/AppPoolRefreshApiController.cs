@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Configuration;
-using System.DirectoryServices;
-using System.Reflection;
-using System.Web;
 using System.Web.Configuration;
-using System.Web.Hosting;
 using System.Web.Http;
 using Umbraco.Core.Logging;
 using Umbraco.Web.Editors;

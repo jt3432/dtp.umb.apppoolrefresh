@@ -257,6 +257,7 @@
     <Content Include="App_Plugins\Grid\Config\FanoeConfig.txt" />
     <Content Include="App_Plugins\Grid\Editors\Views\media_with_description.html" />
     <Content Include="App_Plugins\Grid\Editors\Views\quote_with_description.html" />
+    <Content Include="bin\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
     <Content Include="bin\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
     <Content Include="bin\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
     <Content Include="bin\amd64\sqlceca40.dll" />
@@ -280,9 +281,12 @@
     <Content Include="bin\controls.xml" />
     <Content Include="bin\CookComputing.XmlRpcV2.dll" />
     <Content Include="bin\dtp.umb.apppoolrefresh.cms.dll" />
+    <Content Include="bin\dtp.umb.apppoolrefresh.cms.dll.config" />
     <Content Include="bin\dtp.umb.apppoolrefresh.cms.pdb" />
     <Content Include="bin\dtp.umb.apppoolrefresh.lib.dll" />
     <Content Include="bin\dtp.umb.apppoolrefresh.lib.pdb" />
+    <Content Include="bin\dtp.umb.apppoolrefresh.plg.dll" />
+    <Content Include="bin\dtp.umb.apppoolrefresh.plg.pdb" />
     <Content Include="bin\Examine.dll" />
     <Content Include="bin\Examine.pdb" />
     <Content Include="bin\Fanoe.dll" />
@@ -346,6 +350,7 @@
     <Content Include="bin\UmbracoExamine.dll" />
     <Content Include="bin\UmbracoExamine.xml" />
     <Content Include="bin\UrlRewritingNet.UrlRewriter.dll" />
+    <Content Include="bin\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
     <Content Include="bin\x86\Microsoft.VC90.CRT\msvcr90.dll" />
     <Content Include="bin\x86\Microsoft.VC90.CRT\README_ENU.txt" />
     <Content Include="bin\x86\sqlceca40.dll" />
@@ -2957,11 +2962,6 @@
     <Content Include="App_Plugins\Grid\Editors\Render\media_text_right.cshtml" />
     <Content Include="App_Plugins\Grid\Editors\Render\media_wide.cshtml" />
     <Content Include="App_Plugins\Grid\Editors\Render\quote_with_description.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
-    <Content Include="bin\dtp.umb.apppoolrefresh.cms.dll.config" />
-    <Content Include="bin\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="media\created-packages\DTP_-_App_Pool_Refresh_1.0.zip" />
