@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Configuration;
 using System.Web.Hosting;
 using System.Xml;
@@ -16,27 +17,71 @@ namespace dtp.umb.apppoolrefresh.plg.Install
 
         public void AddAppSetting()
         {
-            var configFile = WebConfigurationManager.OpenWebConfiguration("/");
-            var settings = configFile.AppSettings.Settings;
-            if (settings[APPKEY_TOUCHEDON] == null)
+            var webConfigPath = HttpContext.Current.Server.MapPath(@"~/web.config");
+
+            XmlDocument webConfig = new XmlDocument();
+            webConfig.Load(webConfigPath);
+
+            // Updating an AppSetting is actually not necessary, simply loading then saving the config file will cause 
+            // an App Pool restart. This is just to track that the plug is working and educational purposes.
+            XmlNode appPoolRefreshNode = webConfig.SelectSingleNode(String.Format("/configuration/appSettings/add[@key='{0}']", APPKEY_TOUCHEDON));
+            if (appPoolRefreshNode == null)
             {
-                settings.Add(APPKEY_TOUCHEDON, String.Empty);
-                configFile.Save(ConfigurationSaveMode.Modified);
-                ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+                XmlAttribute keyAttr = webConfig.CreateAttribute("key");
+                keyAttr.Value = "AppPoolRefresh:TouchedOn";
+
+                XmlAttribute valueAttr = webConfig.CreateAttribute("value");
+                valueAttr.Value = String.Empty;
+
+                appPoolRefreshNode = webConfig.CreateNode("element", "add", "");
+                appPoolRefreshNode.Attributes.Append(keyAttr);
+                appPoolRefreshNode.Attributes.Append(valueAttr);
+
+                XmlNode appSettingsNode = webConfig.SelectSingleNode("/configuration/appSettings");
+                appSettingsNode.AppendChild(appPoolRefreshNode);
+
+                webConfig.Save(webConfigPath);
             }
+
+            // The code below works great other than it will remove any comments that are under the AppSettings node 
+            // when the config file is saved.
+            //var configFile = WebConfigurationManager.OpenWebConfiguration("/");
+            //var settings = configFile.AppSettings.Settings;
+            //if (settings[APPKEY_TOUCHEDON] == null)
+            //{
+            //    settings.Add(APPKEY_TOUCHEDON, String.Empty);
+            //    configFile.Save(ConfigurationSaveMode.Modified);
+            //    ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+            //}
 
         }
 
         public void RemoveAppSetting()
         {
-            var configFile = WebConfigurationManager.OpenWebConfiguration("/");
-            var settings = configFile.AppSettings.Settings;
-            if (settings[APPKEY_TOUCHEDON] != null)
+            var webConfigPath = HttpContext.Current.Server.MapPath(@"~/web.config");
+
+            XmlDocument webConfig = new XmlDocument();
+            webConfig.Load(webConfigPath);
+
+            XmlNode appPoolRefreshNode = webConfig.SelectSingleNode(String.Format("/configuration/appSettings/add[@key='{0}']", APPKEY_TOUCHEDON));
+            if (appPoolRefreshNode != null)
             {
-                settings.Remove(APPKEY_TOUCHEDON);
-                configFile.Save(ConfigurationSaveMode.Modified);
-                ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+                XmlNode appSettingsNode = webConfig.SelectSingleNode("/configuration/appSettings");
+                appSettingsNode.RemoveChild(appPoolRefreshNode);
+
+                webConfig.Save(webConfigPath);
             }
+
+            // The code below works great other than it will remove any comments that are under the AppSettings node 
+            // when the config file is saved.
+            //var configFile = WebConfigurationManager.OpenWebConfiguration("/");
+            //var settings = configFile.AppSettings.Settings;
+            //if (settings[APPKEY_TOUCHEDON] != null)
+            //{
+            //    settings.Remove(APPKEY_TOUCHEDON);
+            //    configFile.Save(ConfigurationSaveMode.Modified);
+            //    ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+            //}
         }
 
         public void AddSectionDashboard()

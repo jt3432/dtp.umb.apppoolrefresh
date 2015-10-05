@@ -13,7 +13,7 @@ namespace dtp.umb.apppoolrefresh.plg.Events
             {
                 InstallHelper installHelper = new InstallHelper();
                 installHelper.AddSectionDashboard();
-                installHelper.AddAppSetting();
+                installHelper.AddAppSetting();                
             }
             InstalledPackage.BeforeDelete += InstalledPackage_BeforeDelete;
         }

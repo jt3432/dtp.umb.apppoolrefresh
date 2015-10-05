@@ -1,16 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dtp.umb.apppoolrefresh.cms", "dtp.umb.apppoolrefresh.cms\dtp.umb.apppoolrefresh.cms.csproj", "{74B33C11-F30C-4959-A265-81B53033910B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4EE9DF9F-AC43-4301-95EA-C155D3C2073F}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dtp.umb.apppoolrefresh.cms", "dtp.umb.apppoolrefresh.cms\dtp.umb.apppoolrefresh.cms.csproj", "{74B33C11-F30C-4959-A265-81B53033910B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dtp.umb.apppoolrefresh.plg", "dtp.umb.apppoolrefresh.plg\dtp.umb.apppoolrefresh.plg.csproj", "{36F30442-0985-4A70-85E6-FCA76A804E13}"
 EndProject
